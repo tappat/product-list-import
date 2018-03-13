@@ -1,5 +1,10 @@
 <?php
 
+use App\Brand;
+use App\Network;
+use App\Category;
+use App\Advertiser;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,5 +17,6 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  $brand = Brand::where('advertiser_id', 1)->first();
+  dd($brand);
 });
