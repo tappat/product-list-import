@@ -58,6 +58,20 @@ class CreateDefaultStatuses extends Command
                   'Active',
                   'Disabled',
               ],
+          ],
+          [
+              'model_type' => 'App\Attribute',
+              'statuses' => [
+                  'Active',
+                  'Disabled',
+              ],
+          ],
+          [
+              'model_type' => 'App\AttributeValue',
+              'statuses' => [
+                  'Active',
+                  'Disabled',
+              ],
           ]
     ];
 

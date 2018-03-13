@@ -2,8 +2,10 @@
 
 use App\Brand;
 use App\Network;
+use App\Product;
 use App\Category;
 use App\Advertiser;
+use App\AttributeValue;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,11 @@ use App\Advertiser;
 */
 
 Route::get('/', function () {
-  $brand = Brand::where('advertiser_id', 1)->first();
-  dd($brand);
+  $attribute = AttributeValue::find(3);
+  dd($attribute->products);
+  $product = Product::find(1);
+  $attributeValues = AttributeValue::where('advertiser_id', $product->advertiser_id)->take(2)->get();
+  $product->attributeValues()->attach($attributeValues);
+  dd($attributeValues);
+  dd($product->attributevalues);
 });

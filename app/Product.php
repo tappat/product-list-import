@@ -5,6 +5,7 @@ namespace App;
 use App\Brand;
 use App\Category;
 use App\Advertiser;
+use App\AttributeValue;
 use App\Traits\HasStatus;
 use Illuminate\Database\Eloquent\Model;
 
@@ -27,6 +28,11 @@ class Product extends Model
   public function categories()
   {
       return $this->belongsToMany(Category::class);
+  }
+
+  public function attributeValues()
+  {
+      return $this->belongsToMany(AttributeValue::class);
   }
 
 }
