@@ -16,8 +16,8 @@ class CreateBrandsTable extends Migration
       Schema::create('brands', function (Blueprint $table) {
         $table->increments('id');
         $table->string('name');
-        $table->integer('advertiser_id')->unsigned()->default(0);
-        $table->integer('status_id')->unsigned()->default(0);
+        $table->integer('advertiser_id')->index()->unsigned()->default(0);
+        $table->integer('status_id')->index()->unsigned()->default(0);
         $table->timestamps();
     });
     }

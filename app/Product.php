@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
   use HasStatus;
-	protected $fillable = ['name', 'external_id', 'url', 'instock', 'brand_id', 'advertiser_id', 'status_id'];
+	protected $fillable = ['name', 'external_id', 'url', 'instock', 'description', 'brand_id', 'advertiser_id', 'status_id'];
   protected $hidden = ['created_at', 'updated_at'];
 
   public function advertiser()

@@ -17,11 +17,12 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('external_id')->index();
             $table->string('name')->nullable();
-            $table->string('url')->nullable();
-            $table->boolean('instock')->default(1);
-            $table->integer('brand_id')->unsigned()->default(0);
-            $table->integer('advertiser_id')->unsigned()->default(0);
-            $table->integer('status_id')->unsigned()->default(0);
+            $table->text('url')->nullable();
+            $table->text('description')->nullable();
+            $table->boolean('instock')->index()->default(1);
+            $table->integer('brand_id')->index()->unsigned()->default(0);
+            $table->integer('advertiser_id')->index()->unsigned()->default(0);
+            $table->integer('status_id')->index()->unsigned()->default(0);
             $table->timestamps();
         });
     }

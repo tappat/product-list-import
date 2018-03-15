@@ -45,7 +45,12 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
+            'root' => env('IMPORT_STORAGE_DIR', storage_path('IMPORT_FILE')),
+        ],
+
+        'temp' => [
+            'driver' => 'local',
+            'root' => env('IMPORT_STORAGE_DIR', storage_path('IMPORT_FILE')).'/temp',
         ],
 
         'public' => [

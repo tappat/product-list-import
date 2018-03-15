@@ -4,11 +4,12 @@ namespace App;
 
 use App\Advertiser;
 use App\Traits\HasStatus;
+use App\Traits\HasOptions;
 use Illuminate\Database\Eloquent\Model;
 
 class Network extends Model
 {
-  use HasStatus;
+  use HasStatus, HasOptions;
 
 	protected $fillable = ['name', 'url', 'options', 'status_id'];
   protected $hidden = ['created_at', 'updated_at'];

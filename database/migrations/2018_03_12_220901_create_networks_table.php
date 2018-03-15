@@ -18,7 +18,7 @@ class CreateNetworksTable extends Migration
             $table->string('name');
             $table->string('url')->nullable();
             $table->json('options')->nullable();
-            $table->integer('status_id')->unsigned()->default(0);
+            $table->integer('status_id')->index()->unsigned()->default(0);
             $table->timestamps();
         });
     }

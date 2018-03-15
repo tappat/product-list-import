@@ -16,13 +16,13 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('advertiser_id')->unsigned()->default(0);
-            $table->integer('status_id')->unsigned()->default(0);
+            $table->integer('advertiser_id')->index()->unsigned()->default(0);
+            $table->integer('status_id')->index()->unsigned()->default(0);
             $table->timestamps();
         });
         Schema::create('category_product', function (Blueprint $table) {
-            $table->integer('category_id')->unsigned();
-            $table->integer('product_id')->unsigned();
+            $table->integer('category_id')->index()->unsigned();
+            $table->integer('product_id')->index()->unsigned();
         });
     }
 
