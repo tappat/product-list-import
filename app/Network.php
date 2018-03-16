@@ -11,7 +11,7 @@ class Network extends Model
 {
   use HasStatus, HasOptions;
 
-	protected $fillable = ['name', 'url', 'options', 'status_id'];
+	protected $fillable = ['name', 'url', 'slug', 'options', 'status_id'];
   protected $hidden = ['created_at', 'updated_at'];
 
 

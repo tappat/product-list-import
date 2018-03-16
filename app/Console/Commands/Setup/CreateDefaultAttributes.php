@@ -27,6 +27,9 @@ class CreateDefaultAttributes extends Command
       ],
       [
         'name' => 'Gender',
+      ],
+      [
+        'name' => 'Size',
       ]
     ];
 

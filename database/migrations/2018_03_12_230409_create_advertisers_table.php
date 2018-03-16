@@ -16,6 +16,7 @@ class CreateAdvertisersTable extends Migration
         Schema::create('advertisers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('slug');
             $table->string('url')->nullable();
             $table->json('options')->nullable();
             $table->integer('network_id')->index()->unsigned()->default(0);

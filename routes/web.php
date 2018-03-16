@@ -1,18 +1,21 @@
 <?php
 
 use App\Brand;
-use App\Import;
+use App\Stock;
 use App\Option;
-use App\Network;
+use App\Import;
 use App\Product;
+use App\Network;
 use App\Category;
 use Carbon\Carbon;
+use App\Attribute;
 use App\Advertiser;
 use App\AttributeValue;
 use App\Helpers\Helpers;
 use Chumper\Zipper\Facades\Zipper;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +29,50 @@ use Illuminate\Support\Facades\Storage;
 */
 
 Route::get('/', function () {
-
   $import = new \App\Import\Import(true);
   die();
+  $url = 'https://stayhard.se/70000443/samsøe-samsøe/laurent-pants-black#';
+  $url = Helpers::urlEncode($url);
+  $valid = filter_var($url, FILTER_VALIDATE_URL);
+  if($valid){
+    echo $url;
+  }
+  die();
+  $product = Product::with('stock')->where('id', 1)->first();
+
+  dd($product);
+  $asd = Stock::create([
+    'product_id' => 20,
+    'value' => 20
+  ]);
+  dd($asd);
+  die();
+  $advertiserId = 1;
+  $attributes = Attribute::with(['attributevalues' => function($q) use($advertiserId){
+    $q->where('advertiser_id', $advertiserId);
+  }])->get();
+  dd($attributes);
+  die();
+  $attributes = Attribute::with('attributevalues', function($q) use($advertiserId) {
+    $q->where('advertiser_id', $advertiserId);
+  })->get();
+  dd($attributes);
+  die();
+  /*
+  $newCats = ['new cat', 'old cat', 'anothesrs'];
+  $sync = Category::whereOrCreate($newCats, 1);
+  $product = Product::find(1);
+  $product->categories()->sync($sync);
+  die();
+  */
+  /*
+  $url = 'https://stayhard.se/04436453/proud-canadian/nash-paint-worn-black';
+  $valid = filter_var($url, FILTER_VALIDATE_URL);
+  if($valid){
+    echo 'true';
+  }
+  die();
+  */
   //$dstFile = Storage::disk('temp')->path('tempfile');
   $dstFile = 'dwdw';
   echo Helpers::getPlainFile($dstFile);

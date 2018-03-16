@@ -57,6 +57,7 @@ class CreateDefaultNetworks extends Command
       $this->info('IN NETWORKS DEFAULT');
 
       foreach($this->defaultData as $data){
+          $data['slug'] = camel_case($data['name']);
           $createdRow = Network::create($data);
           $createdRow->setStatus('active');
           $createdRow->save();

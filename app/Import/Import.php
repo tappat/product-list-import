@@ -58,7 +58,9 @@ class Import {
   function run()
   {
     foreach($this->advertisers as $advertiser){
-      new Advertiser($advertiser);
+      $classname = 'App\Import\Advertisers\\'.$advertiser->slug;
+      //new $classname($advertiser, \Illuminate\Support\Facades\Storage::disk('temp')->path('tempfile'));
+      new $classname($advertiser);
     }
   }
 

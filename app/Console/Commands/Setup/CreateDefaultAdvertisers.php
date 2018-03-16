@@ -28,7 +28,8 @@ class CreateDefaultAdvertisers extends Command
           'name' => 'Stayhard',
           'url' => 'https://stayhard.se/',
           'options' => '{
-            "advertiserId": "1055222007"
+            "advertiserId": "1055222007",
+            "defaultGender": "herr"
           }'
         ]
       ]
@@ -54,6 +55,7 @@ class CreateDefaultAdvertisers extends Command
       $this->info('IN ADVERTISERS DEFAULT');
 
       foreach($this->defaultData as $data){
+          $data['fields']['slug'] = camel_case($data['fields']['name']);
           $createdRow = Advertiser::create($data['fields']);
           $network = Network::where('name', $data['network'])->first();
           if($network){

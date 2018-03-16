@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 class Advertiser extends Model
 {
     use HasStatus, HasOptions;
-    protected $fillable = ['name', 'url', 'options', 'network_id', 'status_id'];
+    protected $fillable = ['name', 'url', 'slug', 'options', 'network_id', 'status_id'];
     protected $hidden = ['created_at', 'updated_at'];
 
 

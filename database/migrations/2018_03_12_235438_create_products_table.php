@@ -17,7 +17,10 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('external_id')->index();
             $table->string('name')->nullable();
+            $table->decimal('price', 10, 2)->unsigned()->default(0);
+            $table->decimal('base_price', 10, 2)->unsigned()->default(0);
             $table->text('url')->nullable();
+            $table->json('options')->nullable();
             $table->text('description')->nullable();
             $table->boolean('instock')->index()->default(1);
             $table->integer('brand_id')->index()->unsigned()->default(0);

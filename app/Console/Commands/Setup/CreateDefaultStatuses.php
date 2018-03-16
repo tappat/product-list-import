@@ -49,8 +49,9 @@ class CreateDefaultStatuses extends Command
           [
               'model_type' => 'App\Category',
               'statuses' => [
-                  'Active',
-                  'Disabled',
+                'New',
+                'Active',
+                'Disabled',
               ],
           ],
           [
@@ -70,6 +71,7 @@ class CreateDefaultStatuses extends Command
           [
               'model_type' => 'App\AttributeValue',
               'statuses' => [
+                  'New',
                   'Active',
                   'Disabled',
               ],
@@ -89,7 +91,15 @@ class CreateDefaultStatuses extends Command
                   'Done',
                   'Failed',
               ],
-          ]
+            ],
+          [
+              'model_type' => 'App\Image',
+              'statuses' => [
+                  'New',
+                  'Active',
+                  'Disabled',
+              ],
+          ],
     ];
 
     /**

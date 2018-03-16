@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 class AttributeValue extends Model
 {
     use HasStatus;
-    protected $fillable = ['name', 'status_id'];
+    protected $fillable = ['name', 'advertiser_id', 'attribute_id', 'status_id'];
     protected $hidden = ['created_at', 'updated_at'];
 
     public function attribute()
